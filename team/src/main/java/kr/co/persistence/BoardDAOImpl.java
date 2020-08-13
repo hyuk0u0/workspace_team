@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.co.domain.CategoryDTO;
+import kr.co.domain.GoodsDTO;
 import kr.co.domain.MemberDTO;
 
 @Repository
@@ -46,4 +47,28 @@ public class BoardDAOImpl implements BoardDAO {
 		
 		session.insert(NS + ".categoryInsert", categoryDTO);
 	}
+	
+	//상품 중복확인
+	@Override
+	public int goodsChk(GoodsDTO goodsDTO) {
+		return session.selectOne(NS + ".goodsChk", goodsDTO);
+	}
+	
+	
+	//상품 등록
+	@Override
+	public void goodsInsert(GoodsDTO goodsDTO) {
+		//상품 번호 ++
+		int gno = session.selectOne(NS + ".getGno");
+		goodsDTO.setGno(gno);
+		
+		session.insert(NS + ".goodsInsert", goodsDTO);
+	}
+	
+	//상품 리스트
+	@Override
+	public List<GoodsDTO> goodsList(int cno) {
+		return session.selectList(NS + ".goodsList", cno);
+	}
+	
 }

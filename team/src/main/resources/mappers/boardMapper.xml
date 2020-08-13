@@ -27,4 +27,24 @@
 	<select id="getCno" resultType="int">
 		SELECT NVL2(max(cno), max(cno) + 1, 1) FROM category
 	</select>
+	
+	<!-- 상품 중복확인 -->
+	<select id="goodsChk" resultType="int">
+		SELECT COUNT(*) FROM goods WHERE gname = #{gname}
+	</select>
+	
+	<!-- 상품 번호++ -->
+	<select id="getGno" resultType="int">
+		SELECT NVL2(max(gno), max(gno) + 1, 1) FROM goods
+	</select>
+	
+	<!-- 상품 등록 -->
+	<insert id="goodsInsert">
+		INSERT INTO goods (gno, cno, gname, price) values (#{gno}, #{cno}, #{gname}, #{price})
+	</insert>
+	
+	<!-- 상품 리스트 ajax -->
+	<select id="goodsList" resultType="GoodsDTO">
+		SELECT * FROM goods where cno = #{cno}
+	</select>
 </mapper>

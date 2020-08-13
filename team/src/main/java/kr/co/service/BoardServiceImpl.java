@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.co.domain.CategoryDTO;
+import kr.co.domain.GoodsDTO;
 import kr.co.domain.MemberDTO;
 import kr.co.persistence.BoardDAO;
 
@@ -39,5 +40,24 @@ public class BoardServiceImpl implements BoardService {
 	public void categoryInsert(CategoryDTO categoryDTO) {
 		bDAO.categoryInsert(categoryDTO);
 		
+	}
+	
+	//상품 중복확인
+	@Override
+	public int goodsChk(GoodsDTO goodsDTO) {
+		
+		return bDAO.goodsChk(goodsDTO);
+	}
+	
+	//상품 등록
+	@Override
+	public void goodsInsert(GoodsDTO goodsDTO) {
+		bDAO.goodsInsert(goodsDTO);
+	}
+	
+	//상품 리스트
+	@Override
+	public List<GoodsDTO> goodsList(int cno) {
+		return bDAO.goodsList(cno);
 	}
 }

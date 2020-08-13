@@ -3,6 +3,7 @@ package kr.co.service;
 import java.util.List;
 
 import kr.co.domain.CategoryDTO;
+import kr.co.domain.GoodsDTO;
 import kr.co.domain.MemberDTO;
 
 public interface BoardService {
@@ -18,5 +19,14 @@ public interface BoardService {
 	
 	//카테고리 등록
 	void categoryInsert(CategoryDTO categoryDTO);
+	
+	//상품 중복확인
+	int goodsChk(GoodsDTO goodsDTO);
+	
+	//상품 등록
+	void goodsInsert(GoodsDTO goodsDTO);
+	
+	//상품 리스트
+	List<GoodsDTO> goodsList(int cno);
 
 }
