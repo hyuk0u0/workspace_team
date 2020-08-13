@@ -100,11 +100,11 @@ body {
         });
 
         $("#memInsertBtn").on("click", function() {
-          location.href = "/member/insert.page";
+          location.href = "/member/insert";
         });
 
         $("#returnHome").on("click", function() {
-          location.href = "/board/mainPage.page";
+          location.href = "/board/mainPage";
         });
       });
     </script>

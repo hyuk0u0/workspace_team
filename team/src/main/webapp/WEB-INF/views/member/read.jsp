@@ -56,10 +56,10 @@
   <script type="text/javascript">
       $(document).ready(function() {
         $("#memUpdateBtn").on("click", function() {
-          location.assign("/member/update.page/${mDto.id}");
+          location.assign("/member/update/${mDto.id}");
         });
         $("#memListBtn").on("click", function() {
-          location.href = "/member/list.page";
+          location.href = "/member/list";
         });
       });
     </script>

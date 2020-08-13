@@ -48,7 +48,7 @@
           <c:forEach items="${list}" var="mDto">
             <tr>
               <td>
-                <a href="/member/read.page/${mDto.id}">${mDto.id}</a>
+                <a href="/member/read/${mDto.id}">${mDto.id}</a>
               </td>
               <td>${mDto.uname}</td>
               <td>${mDto.phone}</td>
@@ -60,7 +60,7 @@
       </table>
     </div>
     <div class="row">
-      <button id="returnHome" class="btn btn-info" type="button" onclick="location.href='/board/mainPage.page'">홈페이지</button>
+      <button id="returnHome" class="btn btn-info" type="button" onclick="location.href='/board/mainPage'">홈페이지</button>
     </div>
     <!-- class = row -->
 

@@ -20,7 +20,7 @@
 </head>
 <body>
   <div class="container">
-    <form id="memInsertForm" action="/member/insert.page" method="post">
+    <form id="memInsertForm" action="/member/insert" method="post">
       <div class="form-group">
         <label for="id">아이디</label>
         <input id="id" name="id" class="form-control" type="text">
@@ -124,14 +124,14 @@
         });
 
         $("#memIstCancleBtn").on("click", function() {
-          location.href = "/board/mainPage.page";
+          location.href = "/board/mainPage";
         });
       });
 
       function fn_idChk() {
 
         $.ajax({
-          url : "/member/idChk.page",
+          url : "/member/idChk",
           type : "post",
           dataType : "json",
           data : {

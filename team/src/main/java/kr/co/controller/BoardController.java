@@ -24,9 +24,9 @@ public class BoardController {
 	private BoardService bService;
 	
 	@RequestMapping(value = "/mainPage", method = RequestMethod.GET)
-  public String mainHome() {
-    return "board/mainPage.page";
-  }
+	public String mainHome() {
+		return "board/mainPage";
+	}
 
 	
 	//어드민페이지
@@ -62,10 +62,11 @@ public class BoardController {
 	
 	//상품 등록/조회 페이지
 	@RequestMapping(value = "/goodsInsert", method = RequestMethod.GET)
-	public void goodsInsert(Model model) {
+	public String goodsInsert(Model model) {
 		List<CategoryDTO> categoryList = bService.categoryList();
 
 		model.addAttribute("categoryList", categoryList);
+		return "/board/goodsInsert";
 	}
 	
 	//상품 등록

@@ -68,7 +68,6 @@
 	</div>
 	
 	
-	
 	<jsp:include page="../includes/footer.jsp" />
 	
 	<script type="text/javascript">

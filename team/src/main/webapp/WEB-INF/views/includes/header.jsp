@@ -42,7 +42,7 @@
 	      			<li><a href="/member/register"><span class="glyphicon glyphicon-user"></span> 회원가입</a></li>
 	      		</c:if>
 	      		<c:if test="${not empty login}">
-	      			<li><a href="/member/myPage/${login.userId}"><span class="glyphicon glyphicon-user"></span> 마이페이지</a></li>
+	      			<li><a href="/member/myPage/${login.id}"><span class="glyphicon glyphicon-user"></span> 마이페이지</a></li>
 	      		</c:if>
 	      		<c:if test="${empty login}">
 		      		<li><a href="/member/login"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>

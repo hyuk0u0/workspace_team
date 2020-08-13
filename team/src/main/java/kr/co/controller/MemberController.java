@@ -30,7 +30,7 @@ public class MemberController {
 
     status.setComplete();
 
-    return "redirect:/board/mainPage.page";
+    return "redirect:/board/mainPage";
   }
 
   @RequestMapping(value = "/loginpost", method = RequestMethod.POST)
@@ -46,16 +46,16 @@ public class MemberController {
       if (path != null) {
         return "redirect:" + path;
       }
-      return "redirect:/board/mainPage.page";
+      return "redirect:/board/mainPage";
     } else {
-      return "redirect:/member/login.page";
+      return "redirect:/member/login";
     }
 
   }
 
-  @RequestMapping(value = "/login.page", method = RequestMethod.GET)
+  @RequestMapping(value = "/login", method = RequestMethod.GET)
   public String login() {
-    return "member/login.page";
+    return "member/login";
   }
 
 //  @RequestMapping(value = "/forByUserDel.page/{id}", method = RequestMethod.GET)
@@ -65,21 +65,21 @@ public class MemberController {
 //    return "redirect:/board/main.page";
 //  }
 
-  @RequestMapping(value = "/delete.page/{id}", method = RequestMethod.GET)
+  @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
   public String delete(@PathVariable("id") String id) {
     memService.delete(id);
 
-    return "redirect:/member/list.page";
+    return "redirect:/member/list";
   }
 
   @RequestMapping(value = "/update", method = RequestMethod.POST)
   public String update(MemberDTO mDto) {
     memService.update(mDto);
 
-    return "redirect:/member/list.page";
+    return "redirect:/member/list";
   }
 
-  @RequestMapping(value = "/update.page/{id}", method = RequestMethod.GET)
+  @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
   public String updateui(Model model, @PathVariable("id") String id) {
     MemberDTO mDto = memService.updateUI(id);
     List<MemberDTO> grlist = memService.grlist();
@@ -87,16 +87,16 @@ public class MemberController {
     model.addAttribute("mDto", mDto);
     model.addAttribute("grlist", grlist);
 
-    return "member/update.page";
+    return "member/update";
   }
 
-  @RequestMapping(value = "/read.page/{id}", method = RequestMethod.GET)
+  @RequestMapping(value = "/read/{id}", method = RequestMethod.GET)
   public String read(Model model, @PathVariable("id") String id) {
     MemberDTO mDto = memService.read(id);
 
     model.addAttribute("mDto", mDto);
 
-    return "member/read.page";
+    return "member/read";
   }
 
   @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -105,7 +105,7 @@ public class MemberController {
 
     model.addAttribute("list", mlist);
 
-    return "member/list.page";
+    return "member/list";
   }
 
   @RequestMapping(value = "/insert", method = RequestMethod.POST)
@@ -113,7 +113,7 @@ public class MemberController {
 
     memService.insert(mDto);
 
-    return "redirect:/board/mainPage.page";
+    return "redirect:/board/mainPage";
   }
 
   @RequestMapping(value = "/insert", method = RequestMethod.GET)
@@ -121,7 +121,7 @@ public class MemberController {
     List<MemberDTO> grlist = memService.grlist();
     model.addAttribute("grlist", grlist);
 
-    return "member/insert.page";
+    return "member/insert";
   }
 
   /* 아이디 중복체크 */

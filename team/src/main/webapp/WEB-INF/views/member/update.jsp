@@ -20,7 +20,7 @@
 </head>
 <body>
   <div class="container">
-    <form id="memUpdateForm" name="memUpdateForm" action="/member/update.page" method="post">
+    <form id="memUpdateForm" name="memUpdateForm" action="/member/update" method="post">
       <div class="form-group">
         <label for="id">아이디</label>
         <input id="id" name="id" class="form-control" value="${mDto.id}" readonly>
@@ -106,7 +106,7 @@
 
       function memCancleCheck() {
         if (confirm("정보를 수정을 취소하시겠습니까?? 입력한 정보는 삭제됩니다.") == true) {
-          location.assign("/member/list.page");
+          location.assign("/member/list");
         } else { //취소
           return false;
 
