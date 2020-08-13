@@ -1,3 +1,7 @@
+ca15
+CREATE USER ca15 IDENTIFIED BY ca15;
+GRANT CONNECT, RESOURCE, DBA TO ca15;
+
 create table grants(
 grno number primary key,
 authority varchar2(30)
