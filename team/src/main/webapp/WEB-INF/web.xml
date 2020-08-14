@@ -31,10 +31,6 @@
 		<filter-name>encoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
 
 	<!-- Processes application requests -->
 	<servlet>
@@ -53,3 +49,4 @@
 	</servlet-mapping>
 
 </web-app>
+

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.co.domain.BoardDTO;
 import kr.co.domain.CategoryDTO;
 import kr.co.domain.GoodsDTO;
 import kr.co.domain.MemberDTO;
@@ -91,6 +92,27 @@ public class BoardController {
 		List<GoodsDTO> goodsList = bService.goodsList(cno);
 		
 		return goodsList;
+	}
+	
+	//게시글 페이지
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public void insert(Model model) {
+		List<CategoryDTO> categoryList = bService.categoryList();
+		
+		model.addAttribute("categoryList" ,categoryList);
+	}
+	
+	//게시글 등록
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	public String insert(BoardDTO boardDTO) {
+		String[] files = boardDTO.getFiles();
+		
+		if(files != null) {
+			boardDTO.setFullName(files[0]);			
+		}
+		
+		bService.insert(boardDTO);
+		return "redirect:/board/mainPage";
 	}
 	
 

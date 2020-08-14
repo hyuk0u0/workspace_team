@@ -1,12 +1,15 @@
 package kr.co.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kr.co.domain.BoardDTO;
 import kr.co.domain.CategoryDTO;
 import kr.co.domain.GoodsDTO;
 import kr.co.domain.MemberDTO;
@@ -71,4 +74,32 @@ public class BoardDAOImpl implements BoardDAO {
 		return session.selectList(NS + ".goodsList", cno);
 	}
 	
+	//사진 삭제
+	@Override
+	public void deleteAttachByFileName(String filename) {
+		session.delete(NS + ".deleteAttachByFileName", filename);
+		
+	}
+	
+	//게시글 등록
+	@Override
+	public void insert(BoardDTO boardDTO) {
+		int bno = session.selectOne(NS + ".getBno");
+		boardDTO.setBno(bno);
+		
+		session.insert(NS + ".insert", boardDTO);
+		
+	}
+	
+	//사진 등록
+	@Override
+	public void addAttach(String fileName, int bno) {
+		int uno = session.selectOne(NS + ".getUno");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("uno", uno);
+		map.put("fileName", fileName);
+		map.put("bno", bno);
+		session.insert(NS + ".addAttach", map);
+		
+	}
 }

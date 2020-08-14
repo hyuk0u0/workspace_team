@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.domain.BoardDTO;
 import kr.co.domain.CategoryDTO;
 import kr.co.domain.GoodsDTO;
 import kr.co.domain.MemberDTO;
@@ -59,5 +60,25 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<GoodsDTO> goodsList(int cno) {
 		return bDAO.goodsList(cno);
+	}
+	
+	//사진 삭제
+	@Override
+	public void deleteAttachByFileName(String filename) {
+		bDAO.deleteAttachByFileName(filename);
+	}
+	
+	//게시글 등록
+	@Override
+	public void insert(BoardDTO boardDTO) {
+		bDAO.insert(boardDTO);
+		String[] files = boardDTO.getFiles();
+		
+		if(files != null) {
+			for(String fileName : files) {
+				bDAO.addAttach(fileName, boardDTO.getBno());
+			}
+		}
+		
 	}
 }

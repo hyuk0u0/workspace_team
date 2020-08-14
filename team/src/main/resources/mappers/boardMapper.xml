@@ -47,4 +47,29 @@
 	<select id="goodsList" resultType="GoodsDTO">
 		SELECT * FROM goods where cno = #{cno}
 	</select>
+	
+	<!-- 사진삭제 -->
+	<delete id="deleteAttachByFileName">
+		DELETE FROM attach WHERE fullname = #{filename}
+	</delete>
+	
+	<!-- 게시글 번호++ -->
+	<select id="getBno" resultType="int">
+		SELECT NVL2(max(bno), max(bno) + 1, 1) FROM board
+	</select>
+	
+	<!-- 게시글 등록 -->
+	<insert id="insert">
+		INSERT INTO board (bno, title, fullName, cno, gno) values (#{bno}, #{title}, #{fullName}, #{cno}, #{gno})
+	</insert>
+	
+	<!-- 사진번호 ++ -->
+	<select id="getUno" resultType="int">
+		SELECT NVL2(max(uno), max(uno) + 1, 1) FROM attach
+	</select>
+	
+	<!-- 사진저장 -->
+	<insert id="addAttach">
+		INSERT INTO ATTACH (uno, fullName, bno) values (#{uno}, #{fileName}, #{bno})
+	</insert>
 </mapper>

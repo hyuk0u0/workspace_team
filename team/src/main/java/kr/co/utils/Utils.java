@@ -40,13 +40,13 @@ public class Utils {
 
 
 
-	private static String makeNewName(String originalName) {
+	public static String makeNewName(String originalName) {
 		UUID uid = UUID.randomUUID();
 		String newName = uid.toString() + "_" + originalName;
 		return newName;
 	}
 	
-	private static String makeDir(String uploadPath) {
+	public static String makeDir(String uploadPath) {
 		String[] paths = Utils.makeDirName();
 		
 		File f = new File(uploadPath + paths[2]);
@@ -65,7 +65,7 @@ public class Utils {
 	}
 
 
-	private static String[] makeDirName() {
+	public static String[] makeDirName() {
 		int[] arr = Utils.getDateInfo();
 		String yearPath = File.separator + arr[0];
 		String monthPath = yearPath + File.separator + String.format("%02d", arr[1]);
@@ -76,7 +76,7 @@ public class Utils {
 	}
 
 
-	private static int[] getDateInfo() {
+	public static int[] getDateInfo() {
 		Calendar cal = Calendar.getInstance();
 		
 		int year = cal.get(Calendar.YEAR);
@@ -87,7 +87,7 @@ public class Utils {
 	}
 	
 	
-	private static boolean isImg(String originalName) {
+	public static boolean isImg(String originalName) {
 		
 		int idx = originalName.lastIndexOf(".");
 		String format = originalName.substring(idx + 1);
@@ -103,7 +103,7 @@ public class Utils {
 
 
 
-	private static MediaType getMediaType(String format) {
+	public static MediaType getMediaType(String format) {
 		Map<String, MediaType> map = new HashMap<String, MediaType>();
 		map.put("JPG", MediaType.IMAGE_JPEG);
 		map.put("JPEG", MediaType.IMAGE_JPEG);
@@ -114,7 +114,7 @@ public class Utils {
 		return mType;
 	}
 	
-	private static String makeThumbnail(String uploadPath, String datePath, String newName) throws Exception {
+	public static String makeThumbnail(String uploadPath, String datePath, String newName) throws Exception {
 		
 		File f1 = new File(uploadPath + datePath, newName);
 		BufferedImage sourceImg = ImageIO.read(f1);
