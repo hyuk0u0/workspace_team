@@ -7,13 +7,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style type="text/css">
-		body {
-		  display: flex;
-		  min-height: 100vh;
-		  flex-direction: column;
-		}
-	</style>
 </head>
 <body>
 		<footer id="footer" style="background-color: #bbbbbb;">
