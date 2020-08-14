@@ -15,6 +15,9 @@ public class BoardDTO implements Serializable {
 	private int gno;
 	private String fullName;
 	private String regDate;
+	private String gname;
+	private String price;
+	private String cname;
 	private String[] files;
 	
 	public BoardDTO() {
@@ -30,6 +33,51 @@ public class BoardDTO implements Serializable {
 		this.fullName = fullName;
 		this.regDate = regDate;
 		this.files = files;
+	}
+	
+	
+
+
+	
+
+	public BoardDTO(int bno, String title, int cno, int gno, String fullName, String regDate, String gname,
+			String price, String cname, String[] files) {
+		super();
+		this.bno = bno;
+		this.title = title;
+		this.cno = cno;
+		this.gno = gno;
+		this.fullName = fullName;
+		this.regDate = regDate;
+		this.gname = gname;
+		this.price = price;
+		this.cname = cname;
+		this.files = files;
+	}
+	
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getGname() {
+		return gname;
+	}
+
+	public void setGname(String gname) {
+		this.gname = gname;
 	}
 
 	public int getBno() {

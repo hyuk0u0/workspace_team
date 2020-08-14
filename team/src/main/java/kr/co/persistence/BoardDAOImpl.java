@@ -102,4 +102,17 @@ public class BoardDAOImpl implements BoardDAO {
 		session.insert(NS + ".addAttach", map);
 		
 	}
+
+	//전부 게시글
+	@Override
+	public List<BoardDTO> boardList() {
+		// TODO Auto-generated method stub
+		return session.selectList(NS+".boardList");
+	}
+
+	//게시글 상세페이지
+	@Override
+	public BoardDTO boardOne(int bno) {
+		return session.selectOne(NS+".boardOne", bno);
+	}
 }

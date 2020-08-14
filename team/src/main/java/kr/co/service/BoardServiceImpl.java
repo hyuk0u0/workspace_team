@@ -81,4 +81,15 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 	}
+
+	//전부 게시글
+	@Override
+	public List<BoardDTO> boardList() {
+		return bDAO.boardList();
+	}
+
+	@Override
+	public BoardDTO boarOne(int bno) {
+		return bDAO.boardOne(bno);
+	}
 }

@@ -63,6 +63,18 @@
 		INSERT INTO board (bno, title, fullName, cno, gno) values (#{bno}, #{title}, #{fullName}, #{cno}, #{gno})
 	</insert>
 	
+	<!-- 전체 게시글 조회  -->
+	<select id="boardList" resultType="BoardDTO">
+		select * from board natural join category natural join goods
+		<!-- select * from board b, goods g, category c where c.cno = g.cno and g.gno=b.gno  -->
+	</select>
+	
+	<!-- 상세페이지 조회  -->
+	<select id="boardOne" resultType="BoardDTO">
+		select * from board natural join category natural join goods where bno=#{bno}
+		<!-- select * from board b, goods g, category c where c.cno = g.cno and g.gno=b.gno  -->
+	</select>
+	
 	<!-- 사진번호 ++ -->
 	<select id="getUno" resultType="int">
 		SELECT NVL2(max(uno), max(uno) + 1, 1) FROM attach

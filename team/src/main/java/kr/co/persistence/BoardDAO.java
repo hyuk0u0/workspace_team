@@ -40,4 +40,10 @@ public interface BoardDAO {
 	//사진 등록
 	void addAttach(String fileName, int bno);
 
+	//전부 게시글
+	List<BoardDTO> boardList();
+
+	//게시글 상세페이지
+	BoardDTO boardOne(int bno);
+
 }

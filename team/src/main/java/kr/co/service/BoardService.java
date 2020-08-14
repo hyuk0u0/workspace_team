@@ -36,4 +36,10 @@ public interface BoardService {
 	//게시글 등록
 	void insert(BoardDTO boardDTO);
 
+	//전부 게시글
+	List<BoardDTO> boardList();
+    
+	//게시글 상세페이지
+	BoardDTO boarOne(int bno);
+
 }

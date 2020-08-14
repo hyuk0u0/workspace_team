@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,8 +26,20 @@ public class BoardController {
 	private BoardService bService;
 	
 	@RequestMapping(value = "/mainPage", method = RequestMethod.GET)
-	public String mainHome() {
+	public String mainHome(Model model) {
+	   List<BoardDTO> boardList = bService.boardList();
+	   model.addAttribute("boardList", boardList);
+		
 		return "board/mainPage";
+	}
+	
+	//게시글  상세페이지
+	@RequestMapping(value = "/read/{bno}", method = RequestMethod.GET)
+	public String boardRead(@PathVariable ("bno") int bno ,Model model) {
+		BoardDTO boardOne = bService.boarOne(bno);
+		model.addAttribute("boardOne", boardOne);
+		return "board/read";
+
 	}
 
 	
@@ -114,6 +127,9 @@ public class BoardController {
 		bService.insert(boardDTO);
 		return "redirect:/board/mainPage";
 	}
+	
+	
+		
 	
 
 }
