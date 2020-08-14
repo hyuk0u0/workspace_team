@@ -9,17 +9,9 @@
 <head>
 	<style type="text/css">
 		body {
-			min-height: 100%;
-		}
-		
-		#footer {
-	
-	    position: absolute;
-	
-	    bottom:0;
-	
-	    width:100%;
-	    height: 150px;
+		  display: flex;
+		  min-height: 100vh;
+		  flex-direction: column;
 		}
 	</style>
 </head>

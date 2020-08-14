@@ -17,7 +17,7 @@
 <body>
 	<jsp:include page="../includes/header.jsp" />
 	
-	<div class="container">
+	<div class="container" style="flex: 1">
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -55,6 +55,7 @@
 		</div>
 	</div>
 	
+
 	<jsp:include page="../includes/footer.jsp" />
 </body>
 </html>

@@ -9,7 +9,7 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-primary" style="margin-bottom: -20px; margin-top: 10px;">
+	<nav class="navbar navbar-primary" style="margin-bottom: -20px; margin-top: 0px;">
 		<div class="container">
 	  		<div class="navbar-header">
 	      		<a class="navbar-brand" href="/board/mainPage">브랜드명</a>
